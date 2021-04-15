@@ -11,7 +11,7 @@ echo "PROXY_PROTOCOL = $PROXY_PROTOCOL"
 /usr/local/bin/ep -v /etc/nginx/conf.d/*
 
 if [ "$DO_AUTH" == "required" ]; then
-    cp /root/auth* /etc/nginx
+    cp /etc/nginx/auth/auth* /etc/nginx
 
     # Set random cookie/password values if not provided
     if [ "x$COOKIE_VALUE" == "x" ]; then

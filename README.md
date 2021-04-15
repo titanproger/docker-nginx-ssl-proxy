@@ -96,6 +96,10 @@ Reasonable defaults have been chosen for SSL cipher suites using [Mozilla's Reco
 
 Reasonable defaults have been chosen with an eye towards a configuration which is more secure by default. See https://www.owasp.org/index.php/List_of_useful_HTTP_headers for more information on the headers used. These headers can be disabled by setting the `SECURITY_HEADERS` variable to `skip`. If your upstream server is itself sending these headers, setting the `SECURITY_HEADERS` variable will avoid the presence of multiple instances of these headers in responses.
 
+## Proxy protocol support
+
+Set the `PROXY_PROTOCOL` environment variable to ony non empty value to enable proxy protocol. See https://docs.nginx.com/nginx/admin-guide/load-balancer/using-proxy-protocol/. It can be helpful if your server is behind proxy itself.
+
 ## Dependencies
 
    * [nginx](https://hub.docker.com/_/nginx/) - proxy server

@@ -1,4 +1,13 @@
 #!/usr/bin/with-contenv bash
+
+if [ "x$PROXY_PROTOCOL" == "x" ]; then
+    export PROXY_PROTOCOL=""
+else
+    export PROXY_PROTOCOL="proxy_protocol"
+fi
+
+echo "PROXY_PROTOCOL = $PROXY_PROTOCOL"
+
 /usr/local/bin/ep -v /etc/nginx/conf.d/*
 
 if [ "$DO_AUTH" == "required" ]; then
@@ -27,6 +36,11 @@ fi
 
 if [ "$SECURITY_HEADERS" == "skip" ]; then
     echo "" > /etc/nginx/security_headers.conf
+fi
+
+# see https://docs.nginx.com/nginx/admin-guide/load-balancer/using-proxy-protocol/
+if [ "$PROXY_PROTOCOL" != "proxy_protocol" ]; then
+    echo "" > /etc/nginx/proxy_protocol.conf
 fi
 
 echo '' > /etc/nginx/trusted_proxies.conf

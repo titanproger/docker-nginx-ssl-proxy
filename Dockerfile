@@ -44,7 +44,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update -q \
              /etc/nginx/trusted_proxies.conf \
              /tmp/htpasswd
 
-COPY etc/* /etc/
+COPY etc /etc/
 
 VOLUME "/etc/letsencrypt"
 

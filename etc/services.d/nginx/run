@@ -79,11 +79,11 @@ if [ "x$NGINX_CLIENT_BODY_BUFFER_SIZE" != "x" ]; then
 fi
 
 if [ ! -e /etc/letsencrypt/fullchain-copy.pem ]; then
-    cp /etc/nginx/temp-server-cert.pem /etc/letsencrypt/fullchain-copy.pem
+    cp /etc/nginx/temp-setup-cert.pem /etc/letsencrypt/fullchain-copy.pem
 fi
 
 if [ ! -e /etc/letsencrypt/privkey-copy.pem ]; then
-    cp /etc/nginx/temp-server-key.pem /etc/letsencrypt/privkey-copy.pem
+    cp /etc/nginx/temp-setup-key.pem /etc/letsencrypt/privkey-copy.pem
 fi
 
 exec nginx -g 'daemon off;'
